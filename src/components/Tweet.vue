@@ -1,7 +1,7 @@
 <template>
   <div className="tweet">
     <img
-      src="https://i.imgur.com/9yw1Fyw.jpg"
+      :src="imageT"
       className="profile"
       alt="profile"
     />
@@ -9,17 +9,21 @@
     <div className="body">
       <div className="top">
         <span className="user">
-          <span className="name">Ironhack</span>
-          <span className="handle">@ironhack</span>
+          <span className="name">{{nameT}}</span>
+          <!-- <span className="name">Ironhack</span> -->
+          <span className="handle">@{{handleT}}</span>
+          <!-- <span className="handle">@ironhack</span> -->
         </span>
 
-        <span className="timestamp">Nov 30, 2020</span>
+        <span className="timestamp">{{timestampT}}</span>
+        <!-- <span className="timestamp">Nov 30, 2020</span> -->
       </div>
 
-      <p className="message">
+      <p className="message">{{messageT}}</p>
+      <!-- <p className="message">
         On December 7th, we will be hosting a #webinar that will introduce you
         to #SQL! Are you ready? 🚀
-      </p>
+      </p> -->
 
       <div className="actions">
         <!-- Font Awesome icons -->
@@ -34,8 +38,13 @@
   </div>
 </template>
 
+<script setup>
+  const props =defineProps(['nameT', 'imageT', 'handleT', 'timestampT', 'messageT']);
+</script>
+
 <style scoped>
 a {
   color: #42b983;
 }
 </style>
+
